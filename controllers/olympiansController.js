@@ -6,6 +6,12 @@ const Olympian = require('../models/olympian');
 
 const index = (request, response) => {
     Olympian.all()
+        .then((array) => {
+            let olympians = {
+                "olympians": array
+            }
+            return olympians;
+        })
         .then((olympians) => response.status(200).json(olympians))
 };
 
