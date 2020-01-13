@@ -1,4 +1,5 @@
 # Koroibos
+
 ####2016 Summer Olympics Analytical Data
 
 [![Build Status](https://travis-ci.com/turingschool-examples/all-your-base.svg?branch=master)](https://travis-ci.com/turingschool-examples/all-your-base)
@@ -50,7 +51,7 @@ Running tests are simple and require you to run the following command below:
 
 `npm test`
 
-When the tests have completed, you’ll get a read out of how things panned out. The tests will be a bit more noisy than what you’re used to, so be prepared. 
+When the tests have completed, you’ll get a read out of how things panned out. Test coverage should be mostly green and above 75%.
 
 ## Setting up your production environment
 This repo comes with a lot of things prepared for you. This includes production ready configuration. To get started, you’ll need to do a few things. 
@@ -70,6 +71,38 @@ heroku run bash
 npm install
 nom install -g knex
 knex migrate:latest
+knex seed:run
 ```
 
 This will install any dependencies, install Knex, and migrate any changes that you’ve made to the database. 
+
+#### How To Use
+
+Since all of these endpoints are GET requests, they can be ran either in a web browser of your choice or in an application such as [Postman](https://www.getpostman.com/downloads/).
+
+`GET /api/v1/olympians`
+
+This will display details for each Olympian in the 2016 Olympics sample data set. There response should be in the following format:
+
+```
+{
+  "olympians":
+    [
+      {
+        "name": "Maha Abdalsalam",
+        "team": "Egypt",
+        "age": 18,
+        "sport": "Diving"
+        "total_medals_won": 0
+      },
+      {
+        "name": "Ahmad Abughaush",
+        "team": "Jordan",
+        "age": 20,
+        "sport": "Taekwondo"
+        "total_medals_won": 1
+      },
+      {...}
+    ]
+}
+```
