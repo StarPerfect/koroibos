@@ -38,7 +38,26 @@ async function dbCall() {
 };
 
 const index = async (request, response) => {
-    let waitingGame = await dbCall()
+    if (request.query.age === 'youngest') {
+        database('olympians')
+            .orderBy('Age', 'ASC')
+            .limit(1)
+            .then(async (youth) => {
+                let medalCount = await Olympian.totalMedals(youth[0]['Name'])
+                let youngestOlympian = {
+                    name: youth[0]['Name'],
+                    team: youth[0]['Team'],
+                    age: youth[0]['Age'],
+                    sport: youth[0]['Sport'],
+                    total_medals_won: medalCount
+                }
+                return youngestOlympian;
+            })
+            .then((youngest) => {
+                response.status(200).json(youngest);
+            })
+    } else {
+        let waitingGame = await dbCall()
         .then((editedArray) => {
             let olympians = {
                 "olympians": editedArray
@@ -46,6 +65,7 @@ const index = async (request, response) => {
             return olympians;
         })
         .then((olympians) => response.status(200).json(olympians))
+    }
 };
 
 module.exports = {

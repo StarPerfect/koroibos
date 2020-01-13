@@ -106,3 +106,24 @@ This will display details for each Olympian in the 2016 Olympics sample data set
     ]
 }
 ```
+
+`GET /api/v1/olypians?age=youngest`
+
+This will return details for the youngest Olympian competing in the 2016 Summer Games. The response will be in the following format:
+
+```
+{
+  [
+    {
+      "name": "Ana Iulia Dascl",
+      "team": "Romania",
+      "age": 13,
+      "sport": "Swimming"
+      "total_medals_won": 0
+    }
+  ]
+}
+```
+
+
+
