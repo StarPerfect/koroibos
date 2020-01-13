@@ -11,7 +11,7 @@ The easiest way to get started is to run the following command. This will pull d
 `npm install`
 
 #### Set up your local database
-You’ll need to figure out a name for your database. We suggest calling it something like `sweater_weather_dev`.  
+You’ll need to figure out a name for your database. We suggest calling it something like `koroibos_dev`.  
 
 To get things set up, you’ll need to access your Postgres instance by typing in `psql` into your terminal. Once there, you can create your database by running the comment `CREATE DATABASE PUT_DATABASE_NAME_HERE_dev;`. 
 
