@@ -20,4 +20,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/v1/olympians', olympianRouter);
 
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(process.env.PORT || 4000, () => {
+        console.log("Listening for requests on port 4000")
+    });
+};
+
 module.exports = app;
