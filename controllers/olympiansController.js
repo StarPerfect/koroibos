@@ -38,30 +38,50 @@ async function dbCall() {
 };
 
 const index = async (request, response) => {
-    if (request.query.age === 'youngest') {
-        database('olympians')
-            .orderBy('Age', 'ASC')
-            .limit(1)
-            .then(async (youth) => {
-                let medalCount = await Olympian.totalMedals(youth[0]['Name'])
-                let youngestOlympian = {
-                    name: youth[0]['Name'],
-                    team: youth[0]['Team'],
-                    age: youth[0]['Age'],
-                    sport: youth[0]['Sport'],
-                    total_medals_won: medalCount
-                }
-                return youngestOlympian;
-            })
-            .then((youngest) => {
-                response.status(200).json(youngest);
-            })
+    if (request.query.age) {
+        if (request.query.age === 'youngest') {
+            database('olympians')
+                .orderBy('Age', 'ASC')
+                .limit(1)
+                .then(async (youth) => {
+                    let medalCount = await Olympian.totalMedals(youth[0]['Name'])
+                    let youngestOlympian = {
+                        name: youth[0]['Name'],
+                        team: youth[0]['Team'],
+                        age: youth[0]['Age'],
+                        sport: youth[0]['Sport'],
+                        total_medals_won: medalCount
+                    }
+                    return youngestOlympian;
+                })
+                .then((youngest) => {
+                    response.status(200).json(youngest);
+                })
+        } else if (request.query.age === 'oldest') {
+            database('olympians')
+                .orderBy('Age', 'DESC')
+                .limit(1)
+                .then(async (elder) => {
+                    let medalCount = await Olympian.totalMedals(elder[0]['Name'])
+                    let oldestOlympian = {
+                        name: elder[0]['Name'],
+                        team: elder[0]['Team'],
+                        age: elder[0]['Age'],
+                        sport: elder[0]['Sport'],
+                        total_medals_won: medalCount
+                    }
+                    return oldestOlympian;
+                })
+                .then((oldest) => {
+                    response.status(200).json(oldest);
+                })
+        }
     } else {
         let waitingGame = await dbCall()
-        .then((editedArray) => {
-            let olympians = {
-                "olympians": editedArray
-            }
+            .then((editedArray) => {
+                let olympians = {
+                    "olympians": editedArray
+                }
             return olympians;
         })
         .then((olympians) => response.status(200).json(olympians))
