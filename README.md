@@ -125,5 +125,20 @@ This will return details for the youngest Olympian competing in the 2016 Summer 
 }
 ```
 
+`GET /api/v1/olympian_stats`
 
+This endpoint provides some overall statistics from all participating Olympians of the 2016 Summer Games. Details are total number of participants, average weight in kg for both females and males, and the average age. Expected response should be in the following format:
 
+```
+  {
+    "olympian_stats": {
+      "total_competing_olympians": 3120
+      "average_weight:" {
+        "unit": "kg",
+        "male_olympians": 75.4,
+        "female_olympians": 70.2
+      }
+      "average_age:" 26.2
+    }
+  }
+```
