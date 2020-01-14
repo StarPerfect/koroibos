@@ -28,4 +28,11 @@ describe('Test Events Path', () => {
             expect(res.body.medalists[0]['Age']).toBe(29);
             expect(res.body.medalists[0]['Medal']).toBe('Gold');
     });
+
+    it('Medalists sad path', async () => {
+        const res = await request(app)
+            .get('/api/v1/events/9999/medalists');
+        
+        expect(res.statusCode).toBe(400);
+    });
 });
