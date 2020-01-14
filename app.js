@@ -9,6 +9,7 @@ const configuration = require('./knexfile')[environment];
 var indexRouter = require('./routes/index');
 var olympianRouter = require('./routes/api/v1/olympians');
 var statsRouter = require('./routes/api/v1/stats');
+var eventsRouter = require('./routes/api/v1/events');
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/v1/olympians', olympianRouter);
 app.use('/api/v1/olympian_stats', statsRouter);
+app.use('/api/v1/events', eventsRouter);
 
 if (process.env.NODE_ENV !== 'test') {
     app.listen(process.env.PORT || 4000, () => {

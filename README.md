@@ -142,3 +142,35 @@ This endpoint provides some overall statistics from all participating Olympians 
     }
   }
 ```
+
+`GET /api/v1/events`
+
+This endpoint provides a list of all the sports in the 2016 Summer Olympics and all the events in that sports category. The response will look this the following:
+
+```
+{
+  "events":
+    [
+      {
+        "sport": "Archery",
+        "events": [
+          "Archery Men's Individual",
+          "Archery Men's Team",
+          "Archery Women's Individual",
+          "Archery Women's Team"
+        ]
+      },
+      {
+        "sport": "Badminton",
+        "events": [
+          "Badminton Men's Doubles",
+          "Badminton Men's Singles",
+          "Badminton Women's Doubles",
+          "Badminton Women's Singles",
+          "Badminton Mixed Doubles"
+        ]
+      },
+      {...}
+    ]
+}
+```
