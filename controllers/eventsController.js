@@ -28,7 +28,7 @@ async function sportsWithEvents(sportsArray) {
 
 const index = (request, response) => {
     database('events')
-        .distinct('Sport') // this give me an array of {sport: something}, iterate over and add array of events?
+        .distinct('Sport')
         .then( async (data) => {
             let waitingGame = await sportsWithEvents(data)
             return waitingGame;
@@ -36,6 +36,22 @@ const index = (request, response) => {
         .then((eventsBySport) => response.status(200).json(eventsBySport))
 }
 
+const show = (request, response) => {
+    let eventId = request.params.id 
+    database('events').select('Event').where('id', eventId)
+        .then( async (event) => {
+            let whatSport = event[0]['Event']
+            let medalOlympians = await database('olympians').select('Name', 'Team', 'Age', 'Medal').where('Event', whatSport).whereNot('Medal', 'NA')
+            let finalMedalists = {
+                "events": whatSport,
+                "medalists": medalOlympians
+            }
+            return finalMedalists;
+        })
+        .then((medalists) => response.status(200).json(medalists))
+}
+
 module.exports = {
-    index
+    index,
+    show
 };

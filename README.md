@@ -174,3 +174,27 @@ This endpoint provides a list of all the sports in the 2016 Summer Olympics and 
     ]
 }
 ```
+
+`GET /api/v1/events/:id/medalists`
+
+The final endpoint in this app is an extensions of the Events resource. This gives you a list off all the Olympic medalists for the particular event in the 2016 Summer Games. Details provided are the Olympian's name, age, team, and medal won. Here is an example of the response: 
+
+```
+{
+  "event": "Badminton Mixed Doubles",
+  "medalists": [
+      {
+        "name": "Tontowi Ahmad",
+        "team": "Indonesia-1",
+        "age": 29,
+        "medal": "Gold"
+      },
+      {
+        "name": "Chan Peng Soon",
+        "team": "Malaysia",
+        "age": 28,
+        "medal": "Silver"
+      }
+    ]
+}
+```
