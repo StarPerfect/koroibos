@@ -14,7 +14,7 @@
 1. [Tech Stack](#stack)
 
 ## Introduction <a name="intro"></a>
-This application is a coding challenge for the mock interview process with Koroibos. The app utilizes this [csv data](https://github.com/StarPerfect/koroibos/blob/master/db/data/data.csv) to expose particular analytics for the 2016 Summer Olympic Games. Here are the [requirements](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/take_home_challenge/prompts/olympic_spec.md) as well as the [rubric](https://backend.turing.io/module4/projects/take_home_challenge/take_home_challenge_rubric) on which the application is evaluated against. You can view my [Agile Board](https://github.com/StarPerfect/koroibos/projects/1) to see my Git workflow.
+This application is a coding challenge for the mock interview process with Koroibos. The app utilizes this [csv data](https://github.com/StarPerfect/koroibos/blob/master/db/data/data.csv) to expose particular analytics for the 2016 Summer Olympic Games. Here are the [requirements](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/take_home_challenge/prompts/olympic_spec.md) as well as the [rubric](https://backend.turing.io/module4/projects/take_home_challenge/take_home_challenge_rubric) on which the application is evaluated against. You can also view my [Agile Board](https://github.com/StarPerfect/koroibos/projects/1) to see my Git workflow.
 
 ## Initial Setup <a name="setup"></a>
 To use this repo, you’ll need to `fork` the repo as your own. Once you have done that, you’ll need to run the following command below to get everything up and running. 
