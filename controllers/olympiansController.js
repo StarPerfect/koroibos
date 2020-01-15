@@ -44,7 +44,7 @@ const index = async (request, response) => {
                 .orderBy('Age', 'ASC')
                 .limit(1)
                 .then(async (youth) => {
-                    let edited = await editedOlympian(youth)
+                    let edited = await editedOlympian(youth[0])
                     return edited;
                 })
                 .then((youngest) => {
@@ -55,7 +55,7 @@ const index = async (request, response) => {
                 .orderBy('Age', 'DESC')
                 .limit(1)
                 .then(async (elder) => {
-                    let edited = await editedOlympian(elder)
+                    let edited = await editedOlympian(elder[0])
                     return edited;
                 })
                 .then((oldest) => {
