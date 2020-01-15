@@ -212,17 +212,17 @@ If you'd like to contribute to this app, please submit a 'compare across forks' 
 
 ## Core Contributors <a name="contributors"></a>
 
-[Corina Allen](https://github.com/StarPerfect)
+#### [Corina Allen](https://github.com/StarPerfect)
 [LinkedIn](https://www.linkedin.com/in/corina-allen/)
 
 ## Schema Design <a name="schema"></a>
 ![Koroibos Schema Diagram](https://user-images.githubusercontent.com/47605558/72395834-090f2c00-36f8-11ea-9c6f-6193f7172a68.png)
 
 ## Tech Stack <a name="stack"></a>
-[Node.js](https://nodejs.org/en/)
-[Express](https://expressjs.com/)
-[Knex](http://knexjs.org/)
-[Jest](https://jestjs.io/)
-[Supertest](https://www.npmjs.com/package/supertest)
-[Postgres](https://www.postgresql.org/)
-[Heroku](http://www.heroku.com/)
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Knex](http://knexjs.org/)
+- [Jest](https://jestjs.io/)
+- [Supertest](https://www.npmjs.com/package/supertest)
+- [Postgres](https://www.postgresql.org/)
+- [Heroku](http://www.heroku.com/)
