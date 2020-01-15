@@ -44,15 +44,8 @@ const index = async (request, response) => {
                 .orderBy('Age', 'ASC')
                 .limit(1)
                 .then(async (youth) => {
-                    let medalCount = await Olympian.totalMedals(youth[0]['Name'])
-                    let youngestOlympian = {
-                        name: youth[0]['Name'],
-                        team: youth[0]['Team'],
-                        age: youth[0]['Age'],
-                        sport: youth[0]['Sport'],
-                        total_medals_won: medalCount
-                    }
-                    return youngestOlympian;
+                    let edited = await editedOlympian(youth)
+                    return edited;
                 })
                 .then((youngest) => {
                     response.status(200).json(youngest);
@@ -62,15 +55,8 @@ const index = async (request, response) => {
                 .orderBy('Age', 'DESC')
                 .limit(1)
                 .then(async (elder) => {
-                    let medalCount = await Olympian.totalMedals(elder[0]['Name'])
-                    let oldestOlympian = {
-                        name: elder[0]['Name'],
-                        team: elder[0]['Team'],
-                        age: elder[0]['Age'],
-                        sport: elder[0]['Sport'],
-                        total_medals_won: medalCount
-                    }
-                    return oldestOlympian;
+                    let edited = await editedOlympian(elder)
+                    return edited;
                 })
                 .then((oldest) => {
                     response.status(200).json(oldest);
