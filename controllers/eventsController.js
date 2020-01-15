@@ -49,6 +49,7 @@ const show = (request, response) => {
             return finalMedalists;
         })
         .then((medalists) => response.status(200).json(medalists))
+        .catch(error => response.status(400).json(error))
 }
 
 module.exports = {
